@@ -17,7 +17,7 @@ LOAD_SEC_PER_JOB = 5        # increase if internet is slow
 def get_job_ad_data ():
     """
     :param: element containing a single complete job ad at the right panel
-    :return: a list of elements containing job ad data by category
+    :return: a list of elements containing job ad data by category: title, company, salary, posted_date, district, job description
     """
     # title, company
     single_job_ad_data = []
@@ -34,11 +34,40 @@ def get_job_ad_data ():
         company = 'company'
     single_job_ad_data.append(company)
 
+    posted_date = 'posted_date'
+    blob = driver.find_elements(By.XPATH, '//span[@class ="sx2jih0 zcydq84u _18qlyvc0 _18qlyvc1x _18qlyvc1 _18qlyvca"]')
+    #
+    bblob_1 = [blob[5].text, blob[6].text, blob[7].text]
+    posted_date = 'posted_date'
+    salary = 'salary'
+    district = 'district'
     try:
-        district = driver.find_elements(By.XPATH, '//span[@class ="sx2jih0 zcydq84u _18qlyvc0 _18qlyvc1x _18qlyvc1 _18qlyvca"]')[5].text
+        for i in bblob_1:
+            if 'posted' in i.lower() and len(i)<30:
+                posted_date = i
+            elif 'hk' in i.lower() and len(i)<30:
+                salary = i
+            elif len(i)<30:
+                district = i
     except NoSuchElementException:
-        district = 'district'
+        pass
+    single_job_ad_data.append(salary)
+    single_job_ad_data.append(posted_date)
     single_job_ad_data.append(district)
+
+    # job description
+    job_description = driver.find_element(By.XPATH, '//div[@data-automation="jobDescription"]').text
+    single_job_ad_data.append(job_description)
+
+    '''
+    # test code do not delete
+    temp = driver.find_elements(By.XPATH, '//span[@class ="sx2jih0 zcydq84u _18qlyvc0 _18qlyvc1x _18qlyvc1 _18qlyvca"]')
+    k = 0
+    for i in temp:
+        s = i.text
+        single_job_ad_data.append(f'*{k}*\n'+s)
+        k += 1
+    '''
 
     return single_job_ad_data
 
@@ -69,7 +98,7 @@ while scrolling:
         # visit the right panel
         job_ad_data = get_job_ad_data()
         for item in job_ad_data:
-            print(item)
+            print('~'+item)
         print('***')
         current_reading_job_item += 1
         if current_reading_job_item > max_job_per_page:
