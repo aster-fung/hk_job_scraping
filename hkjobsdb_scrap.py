@@ -75,6 +75,20 @@ def get_job_ad_data ():
 
     return single_job_ad_data
 
+
+def page_list (driver):
+    # generate page list
+    time.sleep(LOAD_SEC_PER_JOB)
+    last_page = driver.find_elements(By.XPATH, '//*[@id="pagination"]/option')[-1].text
+    page_list = []
+    print('last page is ', last_page)
+    for i in range(1, int(last_page)+1):
+        next_page = WEBSITE+str(i)
+        # print(next_page)
+        page_list.append(next_page)
+    return page_list
+
+
 # setup driver
 options = Options()
 options.add_argument("start-maximized")
@@ -83,18 +97,7 @@ driver.get(WEBSITE+'1')
 # the landing page of Browse by job type/Information Technology(IT)/Data scientist
 
 
-
-
-
-# generate page list
-time.sleep(LOAD_SEC_PER_JOB)
-last_page = driver.find_elements(By.XPATH, '//*[@id="pagination"]/option')[-1].text
-page_list = []
-print('last page is ', last_page)
-for i in range(1, int(last_page)+1):
-    next_page = WEBSITE+str(i)
-    # print(next_page)
-    page_list.append(next_page)
+search_results = page_list(driver)
 
 i = 1
 jobs_title = []
@@ -104,7 +107,7 @@ jobs_posted_date = []
 jobs_district = []
 jobs_job_description = []
 
-for page in page_list:
+for page in search_results:
 
     print('trying: ', page)
     driver.get(page)
