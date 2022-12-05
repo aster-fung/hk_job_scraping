@@ -190,7 +190,7 @@ for page in search_results:
                                         }
                 # get dictionary
                 current_entry_part_2 = scrap_additional_info_as_dict()
-                print(current_entry_part_2)        # scaffold
+                #print(current_entry_part_2)        # scaffold
 
                 print('scrapping job ad number: ', scrap_count)
                 scrap_count += 1
@@ -198,7 +198,7 @@ for page in search_results:
                 # merge two scraped data
                 current_entry_final = current_entry_part_1
                 current_entry_final.update(current_entry_part_2)
-                print('final')                       # scaffold
+                #print('final')                       # scaffold
                 print(current_entry_final)           # scaffold
 
                 with open(file_name, 'a', encoding="utf-8", newline='') as fh:
