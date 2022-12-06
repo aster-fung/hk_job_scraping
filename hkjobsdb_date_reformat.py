@@ -5,7 +5,7 @@ TODAY_STR = str(date.today())
 
 
 def preclean(raw_date_string_fscope):
-    if 'hour' in raw_date_string_fscope:
+    if 'ago' in raw_date_string_fscope:
         # today
         # 'Posted 2 hours ago'
         return TODAY_STR

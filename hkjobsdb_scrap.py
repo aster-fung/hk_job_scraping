@@ -45,7 +45,8 @@ def initialize_field_names():
                           'Company Website',
                           'Qualification',
                           'Job Type',
-                          'Job Functions'
+                          'Job Functions',
+                          'url'
                           ]
     return field_names_fscope
 
@@ -91,8 +92,17 @@ def get_job_ad_data():
     except:
         job_description = 'job_description'
 
-    # get additional info about the job add
+    # job url
+    try:
+        job_url_element = driver.find_element(By.XPATH, '//*[text() = "View in new tab"]')
+        job_url = job_url_element.get_attribute("href")
+    except exceptions.NoSuchElementException:
+        job_url = 'url'  # scrape fail/missing value placeholder
+
+
+    # get additional info about the job ad
     # separate function because of the html structure
+    # see function: scrap_additional_info_as_dict
 
     single_job_ad_data_fscope.append(title)
     single_job_ad_data_fscope.append(salary)
@@ -100,6 +110,7 @@ def get_job_ad_data():
     single_job_ad_data_fscope.append(posted_date)
     single_job_ad_data_fscope.append(district)
     single_job_ad_data_fscope.append(job_description)
+    single_job_ad_data_fscope.append(job_url)
 
     return single_job_ad_data_fscope
 
@@ -186,7 +197,8 @@ for page in search_results:
                                         'company': single_job_ad_data[2],
                                         'posted': single_job_ad_data[3],
                                         'district': single_job_ad_data[4],
-                                        'job_description': single_job_ad_data[5]
+                                        'job_description': single_job_ad_data[5],
+                                        'url': single_job_ad_data[6]
                                         }
                 # get dictionary
                 current_entry_part_2 = scrap_additional_info_as_dict()
@@ -199,7 +211,6 @@ for page in search_results:
                 current_entry_final = current_entry_part_1
                 current_entry_final.update(current_entry_part_2)
                 #print('final')                       # scaffold
-                print(current_entry_final)           # scaffold
 
                 with open(file_name, 'a', encoding="utf-8", newline='') as fh:
                     odictwriter = DictWriter(fh, fieldnames=field_names)
