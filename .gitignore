@@ -1,7 +1,0 @@
-.idea/
-.ipynb_checkpoints/writing_date_reformatter_completed-checkpoint.ipynb
-.ipynb_checkpoints/scrap_url-checkpoint.ipynb
-__pycache__/hkjobsdb_date_reformat.cpython-39.pyc
-.ipynb_checkpoints/hkjobsdb_scrap_additional-checkpoint.ipynb
-*.csv#
-analysis/.ipynb_checkpoints/hkjobsdb_job_ad_analysis-checkpoint.ipynb
