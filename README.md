@@ -34,7 +34,7 @@ python libraries:
 
 # the Dataset 
 
-A python script was written ([here](https://github.com/aster-fung/hk_job_scraping/blob/master/hkjobsdb_scrap.py) to scrape job postings under "Information Technology\Data Scientist" category. The script was implemented in a way that for each job posting was read, an observation ( row of data) is added to the csv file. Preliminary data cleaning was incoporated to the script to make the dataset easier for downstream processing. 
+A python script was written ([here])(https://github.com/aster-fung/hk_job_scraping/blob/master/hkjobsdb_scrap.py) to scrape job postings under "Information Technology\Data Scientist" category. The script was implemented in a way that for each job posting was read, an observation ( row of data) is added to the csv file. Preliminary data cleaning was incoporated to the script to make the dataset easier for downstream processing. 
 
 
 | column | null placeholder | non-null example |
@@ -54,11 +54,11 @@ A python script was written ([here](https://github.com/aster-fung/hk_job_scrapin
 | url | empty | https://hk.jobsdb.com/hk/en/job/data-analyst-data-governance-... |
 
 # Key Findings of the Analysis 
-can be found inside the \analysis\data-scientist-job-postings-in-hong-kong-eda.ipynb
+can be found inside the [\analysis\data-scientist-job-postings-in-hong-kong-eda.ipynb](https://github.com/aster-fung/hk_job_scraping/blob/master/analysis/data-scientist-job-postings-in-hong-kong-eda.ipynb)
 
 ![job position](https://github.com/aster-fung/hk_job_scraping/blob/master/analysis/data_viz/job_titles.png)
 
-![Career level, yoe and education](https://github.com/aster-fung/hk_job_scraping/blob/master/analysis/data_viz/additional_info_breakdown.png))
+![Career level, yoe and education](https://github.com/aster-fung/hk_job_scraping/blob/master/analysis/data_viz/additional_info_breakdown.png)
 
 ![map](https://github.com/aster-fung/hk_job_scraping/blob/master/analysis/data_viz/map.png)
 
