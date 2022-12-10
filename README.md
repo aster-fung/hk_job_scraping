@@ -34,7 +34,7 @@ python libraries:
 
 # the Dataset 
 
-A python script was written ([here])(https://github.com/aster-fung/hk_job_scraping/blob/master/hkjobsdb_scrap.py) to scrape job postings under "Information Technology\Data Scientist" category. The script was implemented in a way that for each job posting was read, an observation ( row of data) is added to the csv file. Preliminary data cleaning was incoporated to the script to make the dataset easier for downstream processing. 
+A python script was written [here](https://github.com/aster-fung/hk_job_scraping/blob/master/hkjobsdb_scrap.py) to scrape job postings under "Information Technology\Data Scientist" category. The script was implemented in a way that for each job posting was read, an observation ( row of data) is added to the csv file. Preliminary data cleaning was incoporated to the script to make the dataset easier for downstream processing. 
 
 
 | column | null placeholder | non-null example |
