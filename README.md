@@ -1,4 +1,4 @@
-# Welcome to the dataset and the jupyter notebook for Hong Kong JobsDB job advertisement analysis
+# Welcome to the dataset and the jupyter notebook for Hong Kong JobsDB job posting analysis
 
 This dataset and notebook can be also found on Kaggle
 [dataset](https://www.kaggle.com/datasets/asterfung/ds-obsdbhk)
